@@ -1,3 +1,5 @@
+'use strict';
+
 const classroom = require('./classroom');
 
 module.exports = {
