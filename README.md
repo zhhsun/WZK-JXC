@@ -1,9 +1,7 @@
 # WZK-JXC
 
-To run locally:
+## Setup
 
-- Make sure you have install and run PostgreSQL server
-- Create database with the name same as in config file
-- Run `npm install` or `yarn install`
+- Run `npm install` to install dependencies
 - Run `sequelize db:migrate`
-- Run `nodemon` or `npm start`
+- Run `npm start` to start server
