@@ -5,16 +5,7 @@ module.exports = {
   async list(req, res) {
     try {
       const classrooms = await Classroom.findAll({
-        include: [
-          {
-            model: Student,
-            as: "students",
-          },
-        ],
-        order: [
-          ["createdAt", "DESC"],
-          [{ model: Student, as: "students" }, "createdAt", "DESC"],
-        ],
+        where: {}
       });
       res.status(200).send(classrooms);
     } catch (error) {
