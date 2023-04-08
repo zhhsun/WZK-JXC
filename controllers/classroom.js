@@ -1,35 +1,40 @@
-const Classroom = require('../models').Classroom;
-const Student = require('../models').Student;
+const Classroom = require("../models").Classroom;
+const Student = require("../models").Student;
 
 module.exports = {
-  list(req, res) {
-    return Classroom
-      .findAll({
-        include: [{
-          model: Student,
-          as: 'students'
-        }],
-        order: [
-          ['createdAt', 'DESC'],
-          [{ model: Student, as: 'students' }, 'createdAt', 'DESC'],
+  async list(req, res) {
+    try {
+      const classrooms = await Classroom.findAll({
+        include: [
+          {
+            model: Student,
+            as: "students",
+          },
         ],
-      })
-      .then((classrooms) => res.status(200).send(classrooms))
-      .catch((error) => { res.status(400).send(error); });
+        order: [
+          ["createdAt", "DESC"],
+          [{ model: Student, as: "students" }, "createdAt", "DESC"],
+        ],
+      });
+      res.status(200).send(classrooms);
+    } catch (error) {
+      res.status(400).send(error);
+    }
   },
 
   getById(req, res) {
-    return Classroom
-      .findByPk(req.params.id, {
-        include: [{
+    return Classroom.findByPk(req.params.id, {
+      include: [
+        {
           model: Student,
-          as: 'students'
-        }],
-      })
+          as: "students",
+        },
+      ],
+    })
       .then((classroom) => {
         if (!classroom) {
           return res.status(404).send({
-            message: 'Classroom Not Found',
+            message: "Classroom Not Found",
           });
         }
         return res.status(200).send(classroom);
@@ -40,42 +45,49 @@ module.exports = {
       });
   },
 
-  add(req, res) {
-    return Classroom
-      .create({
+  async add(req, res) {
+    try {
+      const classroom = await Classroom.create({
         class_name: req.body.class_name,
-      })
-      .then((classroom) => res.status(201).send(classroom))
-      .catch((error) => res.status(400).send(error));
+      });
+      res.status(201).send(classroom);
+    } catch (error) {
+      res.status(400).send(error);
+    }
   },
 
   addWithStudents(req, res) {
-    return Classroom
-      .create({
+    return Classroom.create(
+      {
         class_name: req.body.class_name,
         students: req.body.students,
-      }, {
-      	include: [{
-          model: Student,
-          as: 'students'
-        }]
-      })
+      },
+      {
+        include: [
+          {
+            model: Student,
+            as: "students",
+          },
+        ],
+      }
+    )
       .then((classroom) => res.status(201).send(classroom))
       .catch((error) => res.status(400).send(error));
   },
 
   update(req, res) {
-    return Classroom
-      .findByPk(req.params.id, {
-        include: [{
+    return Classroom.findByPk(req.params.id, {
+      include: [
+        {
           model: Student,
-          as: 'students'
-        }],
-      })
-      .then(classroom => {
+          as: "students",
+        },
+      ],
+    })
+      .then((classroom) => {
         if (!classroom) {
           return res.status(404).send({
-            message: 'Classroom Not Found',
+            message: "Classroom Not Found",
           });
         }
         return classroom
@@ -89,12 +101,11 @@ module.exports = {
   },
 
   delete(req, res) {
-    return Classroom
-      .findByPk(req.params.id)
-      .then(classroom => {
+    return Classroom.findByPk(req.params.id)
+      .then((classroom) => {
         if (!classroom) {
           return res.status(400).send({
-            message: 'Classroom Not Found',
+            message: "Classroom Not Found",
           });
         }
         return classroom
