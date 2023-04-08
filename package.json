@@ -1,7 +1,7 @@
 {
-  "name": "node-sequelize",
-  "version": "0.0.0",
-  "private": true,
+  "name": "wzk-jxc",
+  "version": "1.0.0",
+  "private": false,
   "scripts": {
     "start": "node ./bin/start-server",
     "db:migrate": "sequelize db:migrate"
