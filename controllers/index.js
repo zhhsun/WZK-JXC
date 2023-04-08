@@ -1,5 +1,5 @@
-const classroom = require('./classroom');
+const classroom = require("./classroom");
 
 module.exports = {
-  classroom
+  classroom,
 };

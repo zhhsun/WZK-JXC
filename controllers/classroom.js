@@ -1,11 +1,10 @@
 const Classroom = require("../models").Classroom;
-const Student = require("../models").Student;
 
 module.exports = {
   async list(req, res) {
     try {
       const classrooms = await Classroom.findAll({
-        where: {}
+        where: {},
       });
       res.status(200).send(classrooms);
     } catch (error) {
@@ -45,25 +44,6 @@ module.exports = {
     } catch (error) {
       res.status(400).send(error);
     }
-  },
-
-  addWithStudents(req, res) {
-    return Classroom.create(
-      {
-        class_name: req.body.class_name,
-        students: req.body.students,
-      },
-      {
-        include: [
-          {
-            model: Student,
-            as: "students",
-          },
-        ],
-      }
-    )
-      .then((classroom) => res.status(201).send(classroom))
-      .catch((error) => res.status(400).send(error));
   },
 
   update(req, res) {
