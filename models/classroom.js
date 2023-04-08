@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Classroom extends Model {
     static associate(models) {}
   }
+
   Classroom.init(
     {
       id: {
@@ -21,5 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       modelName: 'Classroom',
     }
   );
+
   return Classroom;
 };
