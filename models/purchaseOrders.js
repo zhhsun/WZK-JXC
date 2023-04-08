@@ -1,13 +1,16 @@
 'use strict';
 
-/** @type {import('sequelize-cli').Migration} */
-module.exports = {
-  async up (queryInterface, Sequelize) {
-    return queryInterface.createTable('purchaseOrders', {
+const { Model } = require('sequelize');
+
+module.exports = (sequelize, DataTypes) => {
+  class purchaseOrders extends Model {}
+
+  purchaseOrders.init(
+    {
       id: {
-        type: Sequelize.DataTypes.UUID,
+        type: DataTypes.UUID,
         primaryKey: true,
-        allowNull: false
+        allowNull: false,
       },
       code: {
         type: Sequelize.DataTypes.STRING,
@@ -92,10 +95,12 @@ module.exports = {
         type: Sequelize.DataTypes.JSONB,
         allowNull: true
       }
-    });
-  },
+    },
+    {
+      sequelize,
+      modelName: 'PurchaseOrders',
+    }
+  );
 
-  async down (queryInterface, Sequelize) {
-    return queryInterface.dropTable('Person');
-  }
+  return purchaseOrders;
 };
