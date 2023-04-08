@@ -20,10 +20,10 @@ module.exports = {
         include: [
           {
             model: Student,
-            as: "students",
+            as: 'students',
           },
         ],
-      })
+      });
       return res.status(200).send(classroom);
     } catch (error) {
       res.status(400).send(error);
@@ -46,16 +46,15 @@ module.exports = {
       const classroom = await Classroom.findByPk(req.params.id);
       if (!classroom) {
         return res.status(404).send({
-          message: "Classroom Not Found",
+          message: 'Classroom Not Found',
         });
       }
-      await classroom
-          .update({
-            class_name: req.body.class_name || classroom.class_name,
-          });
+      await classroom.update({
+        class_name: req.body.class_name || classroom.class_name,
+      });
       return res.status(200).send(classroom);
     } catch (error) {
-      res.status(400).send(error)
+      res.status(400).send(error);
     }
   },
 
@@ -64,7 +63,7 @@ module.exports = {
       .then((classroom) => {
         if (!classroom) {
           return res.status(400).send({
-            message: "Classroom Not Found",
+            message: 'Classroom Not Found',
           });
         }
         return classroom
