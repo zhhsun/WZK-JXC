@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node ./bin/start-server",
     "prettier": "npx prettier --write .",
-    "db:migrate": "sequelize db:migrate"
+    "db:migration:create": "npx sequelize-cli migration:generate --name",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:rollback": "npx sequelize-cli db:migrate:undo"
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",
