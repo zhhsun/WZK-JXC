@@ -17,6 +17,7 @@ class PurchaseOrderService {
     try {
       return await PurchaseOrders.create({ ...order });
     } catch (error) {
+      logger.error('Create purchase order error: ', error);
       throw error;
     }
   }

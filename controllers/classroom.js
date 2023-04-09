@@ -16,14 +16,7 @@ module.exports = {
 
   async getById(req, res) {
     try {
-      const classroom = await Classroom.findByPk(req.params.id, {
-        include: [
-          {
-            model: Student,
-            as: 'students',
-          },
-        ],
-      });
+      const classroom = await Classroom.findByPk(req.params.id);
       return res.status(200).send(classroom);
     } catch (error) {
       res.status(400).send(error);

@@ -2,6 +2,7 @@
 
 const { v4: uuidV4 } = require('uuid');
 
+const BaseController = require('./baseController');
 const { purchaseOrderService } = require('../services')
 
 class PurchaseOrdersController extends BaseController {
@@ -29,4 +30,4 @@ class PurchaseOrdersController extends BaseController {
   }
 }
 
-module.exports = new PurchaseOrdersController();
+module.exports = PurchaseOrdersController;

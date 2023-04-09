@@ -1,7 +1,6 @@
 'use strict';
 
-const classroom = require('./classroom');
-
 module.exports = {
-  classroom,
+  classroom: require('./classroom'),
+  purchaseOrder: require('./purchaseOrderController')
 };
