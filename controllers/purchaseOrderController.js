@@ -10,19 +10,27 @@ class PurchaseOrdersController extends BaseController {
   /**
    * 
    */
-  constructor() {}
+  constructor() {
+    super();
+  }
+
+  initialize() {
+    Promise.resolve();
+  }
 
   /**
    * 
    */
   async create(req, res) {
     try {
-      const { name } = req.body;
+      const { name, code } = req.body;
       const payload = {
         id: uuidV4(),
       };
       if (typeof name !== 'string')
         throw new Exceptions.BadInputException('Order name must be a valid string');
+      if (typeof code !== 'string')
+        throw new Exceptions.BadInputException('Order code must be a valid string');
       
       const order = await purchaseOrderService.createOrder(this.logger, payload);
       res.status(201).send(order);

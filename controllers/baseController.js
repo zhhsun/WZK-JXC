@@ -13,6 +13,9 @@ class BaseController {
     });
   }
 
+  /**
+   *
+   */
   parseException(res, err) {
     if (err instanceof Exceptions.BadInputException) {
       res.status(400).send(err);
