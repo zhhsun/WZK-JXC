@@ -1,13 +1,24 @@
 'use strict';
 
+const { PurchaseOrders } = require('../models')
+
 class PurchaseOrderService {
   /**
    * 
    */
   constructor () {}
 
+  /**
+   * create a new purchase order
+   * @param {Object} logger
+   * @param {Object} order
+   */
   async createOrder(logger, order) {
-    return {};
+    try {
+      return await PurchaseOrders.create({ ...order });
+    } catch (error) {
+      throw error;
+    }
   }
 }
 
