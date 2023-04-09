@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       transportation: {
         type: DataTypes.STRING,
+        defaultValue: null,
         allowNull: true
       },
       commission: {
@@ -36,34 +37,42 @@ module.exports = (sequelize, DataTypes) => {
       },
       status: {
         type: DataTypes.STRING,
+        defaultValue: null,
         allowNull: true
       },
       createdBy: {
         type: DataTypes.UUID,
+        defaultValue: null,
         allowNull: true
       },
       createdByName: {
         type: DataTypes.STRING,
+        defaultValue: null,
         allowNull: true
       },
       createdAt: {
         type: DataTypes.DATE,
+        defaultValue: null,
         allowNull: false
       },
       updatedBy: {
         type: DataTypes.UUID,
+        defaultValue: null,
         allowNull: true
       },
       updatedByName: {
         type: DataTypes.STRING,
+        defaultValue: null,
         allowNull: true
       },
       updatedAt: {
         type: DataTypes.DATE,
+        defaultValue: null,
         allowNull: false
       },
       startDate: {
         type: DataTypes.DATE,
+        defaultValue: null,
         allowNull: false
       },
       deleted: {
@@ -73,26 +82,32 @@ module.exports = (sequelize, DataTypes) => {
       },
       ownerId: {
         type: DataTypes.UUID,
+        defaultValue: null,
         allowNull: true
       },
       ownerName: {
         type: DataTypes.STRING,
+        defaultValue: null,
         allowNull: true
       },
       clause: {
         type: DataTypes.STRING,
+        defaultValue: null,
         allowNull: true
       },
       description: {
         type: DataTypes.STRING,
+        defaultValue: null,
         allowNull: true
       },
       createdAddress: {
         type: DataTypes.JSONB,
+        defaultValue: null,
         allowNull: true
       },
       sendAddress: {
         type: DataTypes.JSONB,
+        defaultValue: null,
         allowNull: true
       }
     },
