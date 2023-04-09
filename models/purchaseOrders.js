@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       commission: {
         type: DataTypes.DECIMAL,
         defaultValue: 0,
-        allowNull: false
+        allowNull: true
       },
       status: {
         type: DataTypes.STRING,
@@ -68,12 +68,12 @@ module.exports = (sequelize, DataTypes) => {
       updatedAt: {
         type: DataTypes.DATE,
         defaultValue: null,
-        allowNull: false
+        allowNull: true
       },
       startDate: {
         type: DataTypes.DATE,
         defaultValue: null,
-        allowNull: false
+        allowNull: true
       },
       deleted: {
         type: DataTypes.BOOLEAN,
