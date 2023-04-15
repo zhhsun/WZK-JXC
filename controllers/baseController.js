@@ -1,18 +1,8 @@
 'use strict';
 
-const winston = require("winston");
 const Exceptions = require("../exceptions");
 
-class BaseController {
-  /**
-   * 
-   */
-  constructor () {
-    this.logger = winston.createLogger({
-      transports: [new winston.transports.Console()],
-    });
-  }
-
+module.exports = {
   /**
    *
    */
@@ -23,6 +13,4 @@ class BaseController {
       res.status(500).send(err);
     }
   }
-}
-
-module.exports = BaseController;
+};

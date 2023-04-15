@@ -4,8 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 const classroomController = require('../controllers').classroom;
-const { purchaseOrder } = require('../controllers');
-const poController = new purchaseOrder();
+const purchaseOrderController = require('../controllers').purchaseOrder;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -19,7 +18,7 @@ router.post('/api/classroom', classroomController.add);
 router.put('/api/classroom/:id', classroomController.update);
 router.delete('/api/classroom/:id', classroomController.delete);
 
-router.post('/api/v1/companies/:company_id/purchase-orders', poController.create);
+router.post('/api/v1/companies/:company_id/purchase-orders', purchaseOrderController.create);
 router.get('/api/v1/companies/:company_id/purchase-orders', () => {});
 router.delete('/api/v1/companies/:company_id/purchase-orders/:order_id', () => {});
 router.patch('/api/v1/companies/:company_id/purchase-orders/:order_id', () => {});

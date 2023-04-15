@@ -6,18 +6,7 @@ const BaseController = require('./baseController');
 const { purchaseOrderService } = require('../services')
 const Exceptions = require('../exceptions');
 
-class PurchaseOrdersController extends BaseController {
-  /**
-   * 
-   */
-  constructor() {
-    super();
-  }
-
-  initialize() {
-    Promise.resolve();
-  }
-
+module.exports = {
   /**
    * 
    */
@@ -35,9 +24,7 @@ class PurchaseOrdersController extends BaseController {
       const order = await purchaseOrderService.createOrder(this.logger, payload);
       res.status(201).send(order);
     } catch (err) {
-      this.parseException(res, err);
+      BaseController.parseException(res, err);
     }
   }
-}
-
-module.exports = PurchaseOrdersController;
+};

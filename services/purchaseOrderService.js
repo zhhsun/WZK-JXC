@@ -2,12 +2,7 @@
 
 const { PurchaseOrders } = require('../models')
 
-class PurchaseOrderService {
-  /**
-   * 
-   */
-  constructor () {}
-
+module.exports = {
   /**
    * create a new purchase order
    * @param {Object} logger
@@ -21,6 +16,4 @@ class PurchaseOrderService {
       throw error;
     }
   }
-}
-
-module.exports = new PurchaseOrderService();
+};

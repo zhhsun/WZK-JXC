@@ -14,102 +14,104 @@ module.exports = (sequelize, DataTypes) => {
       },
       code: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       consumptionTax: {
         type: DataTypes.DECIMAL,
         defaultValue: 0,
-        allowNull: false
+        allowNull: false,
       },
       transportation: {
         type: DataTypes.STRING,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       commission: {
         type: DataTypes.DECIMAL,
         defaultValue: 0,
-        allowNull: true
+        allowNull: true,
       },
       status: {
         type: DataTypes.STRING,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       createdBy: {
         type: DataTypes.UUID,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       createdByName: {
         type: DataTypes.STRING,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: null,
-        allowNull: false
+        type: DataTypes.TIME,
+        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false,
       },
       updatedBy: {
         type: DataTypes.UUID,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       updatedByName: {
         type: DataTypes.STRING,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       updatedAt: {
-        type: DataTypes.DATE,
-        defaultValue: null,
-        allowNull: true
+        type: DataTypes.TIME,
+        defaultValue: sequelize.literal(
+          'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
+        ),
+        allowNull: true,
       },
       startDate: {
-        type: DataTypes.DATE,
+        type: DataTypes.TIME,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       deleted: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
-        allowNull: false
+        allowNull: false,
       },
       ownerId: {
         type: DataTypes.UUID,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       ownerName: {
         type: DataTypes.STRING,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       clause: {
         type: DataTypes.STRING,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       description: {
         type: DataTypes.STRING,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       createdAddress: {
         type: DataTypes.JSONB,
         defaultValue: null,
-        allowNull: true
+        allowNull: true,
       },
       sendAddress: {
         type: DataTypes.JSONB,
         defaultValue: null,
-        allowNull: true
-      }
+        allowNull: true,
+      },
     },
     {
       sequelize,
