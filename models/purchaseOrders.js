@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       createdAt: {
-        type: DataTypes.TIME,
+        type: DataTypes.DATE,
         field: 'created_at',
         allowNull: false,
       },
@@ -71,13 +71,13 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       updatedAt: {
-        type: DataTypes.TIME,
+        type: DataTypes.DATE,
         field: 'updated_at',
         defaultValue: null,
         allowNull: true,
       },
       startDate: {
-        type: DataTypes.TIME,
+        type: DataTypes.DATE,
         field: 'start_at',
         defaultValue: null,
         allowNull: true,
