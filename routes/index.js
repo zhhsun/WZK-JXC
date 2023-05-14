@@ -19,9 +19,9 @@ router.put('/api/classroom/:id', classroomController.update);
 router.delete('/api/classroom/:id', classroomController.delete);
 
 router.post('/api/v1/companies/:company_id/purchase-orders', purchaseOrderController.create);
-router.get('/api/v1/companies/:company_id/purchase-orders', () => {});
-router.delete('/api/v1/companies/:company_id/purchase-orders/:order_id', () => {});
-router.patch('/api/v1/companies/:company_id/purchase-orders/:order_id', () => {});
+router.get('/api/v1/companies/:company_id/purchase-orders', purchaseOrderController.list);
+router.delete('/api/v1/companies/:company_id/purchase-orders/:order_id', purchaseOrderController.delete);
+router.patch('/api/v1/companies/:company_id/purchase-orders/:order_id', purchaseOrderController.update);
 router.post('/api/v1/companies/:company_id/purchase-orders/:order_id/products', () => {});
 router.get('/api/v1/companies/:company_id/purchase-orders/:order_id/products', () => {});
 router.delete('/api/v1/companies/:company_id/purchase-orders/:order_id/products/:product_id', () => {});

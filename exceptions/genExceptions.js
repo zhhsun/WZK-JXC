@@ -11,6 +11,16 @@ class BadInputException extends BaseException {
   }
 }
 
+class EntityNotFoundException extends BaseException {
+  /**
+   * 
+   */
+  constructor(message) {
+    super('ERR_ENTITY_NOT_FOUND', message);
+  }
+}
+
 module.exports = {
-  BadInputException
+  BadInputException,
+  EntityNotFoundException
 };
