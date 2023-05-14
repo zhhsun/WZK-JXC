@@ -10,7 +10,7 @@ module.exports = {
    */
   async createOrder(logger, order) {
     try {
-      return await PurchaseOrders.create({ ...order });
+      return await PurchaseOrders.create({ ...order, createdAt: new Date().toISOString() });
     } catch (error) {
       logger.error('Create purchase order error: ', error);
       throw error;

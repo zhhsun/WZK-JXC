@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    return queryInterface.createTable('purchaseOrders', {
+    return queryInterface.createTable('PurchaseOrders', {
       id: {
         type: Sequelize.DataTypes.UUID,
         primaryKey: true,
@@ -20,7 +20,8 @@ module.exports = {
       consumptionTax: {
         type: Sequelize.DataTypes.DECIMAL,
         defaultValue: 0,
-        allowNull: false
+        field: 'consumption_tax',
+        allowNull: true
       },
       transportation: {
         type: Sequelize.DataTypes.STRING,
@@ -29,7 +30,7 @@ module.exports = {
       commission: {
         type: Sequelize.DataTypes.DECIMAL,
         defaultValue: 0,
-        allowNull: false
+        allowNull: true
       },
       status: {
         type: Sequelize.DataTypes.STRING,
@@ -37,31 +38,38 @@ module.exports = {
       },
       createdBy: {
         type: Sequelize.DataTypes.UUID,
+        field: 'created_by',
         allowNull: true
       },
       createdByName: {
         type: Sequelize.DataTypes.STRING,
+        field: 'created_by_name',
         allowNull: true
       },
       createdAt: {
-        type: Sequelize.DataTypes.DATE,
+        type: Sequelize.DataTypes.TIME,
+        field: 'created_at',
         allowNull: false
       },
       updatedBy: {
         type: Sequelize.DataTypes.UUID,
+        field: 'updated_by',
         allowNull: true
       },
       updatedByName: {
         type: Sequelize.DataTypes.STRING,
+        field: 'updated_by_name',
         allowNull: true
       },
       updatedAt: {
-        type: Sequelize.DataTypes.DATE,
-        allowNull: false
+        type: Sequelize.DataTypes.TIME,
+        field: 'updated_at',
+        allowNull: true
       },
       startDate: {
-        type: Sequelize.DataTypes.DATE,
-        allowNull: false
+        type: Sequelize.DataTypes.TIME,
+        field: 'start_at',
+        allowNull: true
       },
       deleted: {
         type: Sequelize.DataTypes.BOOLEAN,
@@ -70,10 +78,12 @@ module.exports = {
       },
       ownerId: {
         type: Sequelize.DataTypes.UUID,
+        field: 'owner_id',
         allowNull: true
       },
       ownerName: {
         type: Sequelize.DataTypes.STRING,
+        field: 'owner_name',
         allowNull: true
       },
       clause: {
@@ -86,16 +96,18 @@ module.exports = {
       },
       createdAddress: {
         type: Sequelize.DataTypes.JSONB,
+        field: 'created_address',
         allowNull: true
       },
       sendAddress: {
         type: Sequelize.DataTypes.JSONB,
+        field: 'send_address',
         allowNull: true
       }
     });
   },
 
   async down (queryInterface, Sequelize) {
-    return queryInterface.dropTable('Person');
+    return queryInterface.dropTable('PurchaseOrders');
   }
 };

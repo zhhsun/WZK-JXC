@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
       consumptionTax: {
         type: DataTypes.DECIMAL,
         defaultValue: 0,
-        allowNull: false,
+        field: 'consumption_tax',
+        allowNull: true,
       },
       transportation: {
         type: DataTypes.STRING,
@@ -42,38 +43,42 @@ module.exports = (sequelize, DataTypes) => {
       },
       createdBy: {
         type: DataTypes.UUID,
+        field: 'created_by',
         defaultValue: null,
         allowNull: true,
       },
       createdByName: {
         type: DataTypes.STRING,
+        field: 'created_by_name',
         defaultValue: null,
         allowNull: true,
       },
       createdAt: {
         type: DataTypes.TIME,
-        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+        field: 'created_at',
         allowNull: false,
       },
       updatedBy: {
         type: DataTypes.UUID,
+        field: 'updated_by',
         defaultValue: null,
         allowNull: true,
       },
       updatedByName: {
         type: DataTypes.STRING,
+        field: 'updated_by_name',
         defaultValue: null,
         allowNull: true,
       },
       updatedAt: {
         type: DataTypes.TIME,
-        defaultValue: sequelize.literal(
-          'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-        ),
+        field: 'updated_at',
+        defaultValue: null,
         allowNull: true,
       },
       startDate: {
         type: DataTypes.TIME,
+        field: 'start_at',
         defaultValue: null,
         allowNull: true,
       },
@@ -84,11 +89,13 @@ module.exports = (sequelize, DataTypes) => {
       },
       ownerId: {
         type: DataTypes.UUID,
+        field: 'owner_id',
         defaultValue: null,
         allowNull: true,
       },
       ownerName: {
         type: DataTypes.STRING,
+        field: 'owner_name',
         defaultValue: null,
         allowNull: true,
       },
@@ -104,11 +111,13 @@ module.exports = (sequelize, DataTypes) => {
       },
       createdAddress: {
         type: DataTypes.JSONB,
+        field: 'created_address',
         defaultValue: null,
         allowNull: true,
       },
       sendAddress: {
         type: DataTypes.JSONB,
+        field: 'send_address',
         defaultValue: null,
         allowNull: true,
       },
