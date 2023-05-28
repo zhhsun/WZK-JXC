@@ -17,53 +17,37 @@ module.exports = {
         type: Sequelize.DataTypes.STRING,
         allowNull: false
       },
-      businessOpportunityId: {
-        type: Sequelize.DataTypes.UUID,
-        field: 'business_opportunity_id',
-        allowNull: true
-      },
-      businessOpportunityName: {
-        type: Sequelize.DataTypes.STRING,
-        field: 'business_opportunity_name',
-        allowNull: true
-      },
-      price: {
-        type: Sequelize.DataTypes.DECIMAL,
+      batchSize: {
+        type: Sequelize.DataTypes.INTEGER,
+        field: 'batch_size',
         defaultValue: 0,
-        allowNull: true
+        allowNull: false
       },
-      customerId: {
-        type: Sequelize.DataTypes.UUID,
-        field: 'customer_id',
-        allowNull: true
+      quantity: {
+        type: Sequelize.DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false
       },
-      customerName: {
-        type: Sequelize.DataTypes.STRING,
-        field: 'customer_name',
-        allowNull: true
+      totalQuantity: {
+        type: Sequelize.DataTypes.INTEGER,
+        field: 'total_quantity',
+        defaultValue: 0,
+        allowNull: false
       },
-      contactorId: {
-        type: Sequelize.DataTypes.UUID,
-        field: 'contractor_id',
-        allowNull: true
+      safeQuantity: {
+        type: Sequelize.DataTypes.INTEGER,
+        field: 'safe_quantity',
+        defaultValue: 0,
+        allowNull: false
       },
-      contactorName: {
-        type: Sequelize.DataTypes.STRING,
-        field: 'contractor_name',
-        allowNull: true
-      },
-      status: {
-        type: Sequelize.DataTypes.STRING,
-        allowNull: true
-      },
-      createdAddress: {
+      location: {
         type: Sequelize.DataTypes.JSONB,
         field: 'created_address',
         allowNull: true
       },
-      sendAddress: {
-        type: Sequelize.DataTypes.JSONB,
-        field: 'send_address',
+      inAt: {
+        type: Sequelize.DataTypes.DATE,
+        field: 'in_at',
         allowNull: true
       },
       endAt: {
@@ -71,25 +55,7 @@ module.exports = {
         field: 'end_at',
         allowNull: true
       },
-      ownerId: {
-        type: Sequelize.DataTypes.UUID,
-        field: 'owner_id',
-        allowNull: true
-      },
-      ownerName: {
-        type: Sequelize.DataTypes.STRING,
-        field: 'owner_name',
-        allowNull: true
-      },
-      transportation: {
-        type: Sequelize.DataTypes.STRING,
-        allowNull: true
-      },
-      clause: {
-        type: Sequelize.DataTypes.STRING,
-        allowNull: true
-      },
-      description: {
+      note: {
         type: Sequelize.DataTypes.STRING,
         allowNull: true
       },
